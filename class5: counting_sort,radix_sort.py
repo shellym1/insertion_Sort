@@ -1,4 +1,3 @@
-'''
 def counting_sort(A):
     min = A[0]
     max = A[0]
@@ -20,8 +19,7 @@ def counting_sort(A):
         B[A[i]] -= 1
     C.pop(0)
     print(C)
-'''
-'''
+
 def radix_sort(A):
     max = A[0]
     for i in A:
