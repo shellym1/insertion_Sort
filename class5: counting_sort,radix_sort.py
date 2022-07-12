@@ -1,25 +1,21 @@
 def counting_sort(A):
-    min = A[0]
-    max = A[0]
-    for i in A:
-        if min > i:
-            min = i
-        elif max < i:
-            max = i
-    B = [0] * (max + 1)
+    B = [0] * 10
     C = [0] * (len(A) + 1)
 
-    for i in range(len(A)):
-        B[A[i]] += 1
-        i+= 1
+    for a in A:
+        B[a % 10] += 1
     for i in range(1, len(B)):
-        B[i] = B[i] + B[i-1]
-    for i in range(len(A)):
-        C[B[A[i]]] = A[i]
-        B[A[i]] -= 1
-    C.pop(0)
-    print(C)
+        B[i] += B[i - 1]
+    print(B)
+    for a in A[::-1]:
+        digit = a % 10
+        C[B[digit]] = a
+        B[digit] -= 1
+    return C[1:]
 
+
+
+'''
 def radix_sort(A):
     max = A[0]
     for i in A:
@@ -27,40 +23,12 @@ def radix_sort(A):
             max = i
     for i in A:
         counting_sort(A)
-'''
-
-def counting_sort(A, j):
-    B = [0]*10
-    C = [0]*(len(A)+1)
-
-    for a in A:
-        B[(a//(10**j)) % 10] += 1
-    for i in range(1, len(B)):
-        B[i] = B[i] + B[i - 1]
-
-    for a in A[::-1]:
-        digit = (a//(10**j)) % 10
-        C[B[digit]] = a
-        B[digit] -= 1
-    return C[1:]
 
 def radix_sort(A, z):
     for i in range(z):
         A = counting_sort(A, i)
     return A
 
-
-def counting(A):
-    B = [0] * (len(A)+1)
-    C = [0] * len(A)
-    for i in range(0, len(A)):
-        B[A[i]] += 1
-    for i in range(1, len(B)):
-        B[i] += B[i-1]
-    for i in range(0, len(B)):
-        C[B[A[i] -1]] = A[i]
-        B[A[i]] -= 1
-    return C
 
 def radix(A):
     max = A[0]
@@ -69,7 +37,7 @@ def radix(A):
             max = i
     counting(A)
     return A
-
+    '''
 
 
 
