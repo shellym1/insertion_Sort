@@ -14,30 +14,28 @@ def counting_sort(A):
     return C[1:]
 
 
+#for radix: 
 
-'''
-def radix_sort(A):
-    max = A[0]
-    for i in A:
-        if max < i:
-            max = i
-    for i in A:
-        counting_sort(A)
+def counting_sort(A, j):
+    B = [0]*10
+    C = [0]*(len(A)+1)
+
+    for a in A:
+        B[(a//(10**j)) % 10] += 1
+    for i in range(1, len(B)):
+        B[i] = B[i] + B[i - 1]
+
+    for a in A[::-1]:
+        digit = (a//(10**j)) % 10
+        C[B[digit]] = a
+        B[digit] -= 1
+    return C[1:]
+
 
 def radix_sort(A, z):
     for i in range(z):
         A = counting_sort(A, i)
     return A
-
-
-def radix(A):
-    max = A[0]
-    for i in range(len(A)):
-        if max < i:
-            max = i
-    counting(A)
-    return A
-    '''
 
 
 
