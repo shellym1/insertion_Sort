@@ -6,18 +6,6 @@ def insertion_Sort(A): #מיון הכנסה
                 A[j], A[min_index] = A[min_index], A[j]
     return A
 
-def insertionSort(A):
-    for i in range(len(A)):
-        mini = i
-        for j in range(i, len(A)):
-            if A[j] < A[mini]:
-                A[j], A[i] = A[i], A[j]
-    return A
-
-
-
-
-
 
 #מיון בועות מעביר את הגדול לסוף
 def booble_Sort(A): #מיון בועות
@@ -28,13 +16,6 @@ def booble_Sort(A): #מיון בועות
                 A[max_index], A[j] = A[j], A[max_index]
     return A
 
-def booble_Sort2(A):
-    for i in range(len(A)):
-        maxi = i
-        for j in range(i, len(A)):
-            if A[maxi] > A[j]:
-                A[i], A[j] = A[j], A[i]
-    return A
 
 
 
