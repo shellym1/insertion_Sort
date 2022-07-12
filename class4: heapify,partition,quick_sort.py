@@ -47,39 +47,6 @@ def quick_sort(A, l, r):
         return A
 
 
-def partition2(A, l, r):
-    left = 0
-    right = len(A)-1
-    pivot = left
-    while left < right:
-        while A[left] < A[pivot] and A[left] < len(A):
-            left += 1
-        while A[right] > A[pivot]:
-            right += 1
-        if A[left] > A[right]:
-            A[left], A[right] = A[right], A[left]
-    return A
-
-def quick_sort2(A, l, r):
-    while l < r:
-        q = partition2(A, l, r)
-        quick_sort2(A, l, q)
-        quick_sort2(A, q+1, r)
-        return A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
